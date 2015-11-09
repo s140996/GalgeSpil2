@@ -24,7 +24,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
         // *** Opretter nyt Spil-objekt ***
         game = new Galgelogik();
         game.nulstil();
-
+// HEJ HEJ HEJ
         // *** Sætter ImageView og Startbillede ***
         iv1 = (ImageView) findViewById(R.id.imageView);
         iv1.setImageResource(R.mipmap.galge);
