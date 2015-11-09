@@ -15,7 +15,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
     private Button b1;
     private TextView tv1, tv2, tv3;
     private EditText et1;
-// Forsøg med git
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
