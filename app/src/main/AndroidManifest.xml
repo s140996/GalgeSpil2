@@ -17,6 +17,10 @@
         </activity>
         <activity android:name=".StartScreen" >
         </activity>
+        <activity android:name=".Indstillinger" >
+        </activity>
+        <activity android:name=".Help" >
+        </activity>
     </application>
 
 </manifest>
