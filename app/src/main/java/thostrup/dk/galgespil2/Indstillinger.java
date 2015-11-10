@@ -16,6 +16,6 @@ public class Indstillinger extends AppCompatActivity {
 
         list = (ListView) findViewById(R.id.listView);
 
-        list.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,  android.R.id.text1, StartScreen.game.getMuligeOrd() ));
+        list.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,  android.R.id.text1, StartScreen.game.getMuligeOrd()));
     }
 }
