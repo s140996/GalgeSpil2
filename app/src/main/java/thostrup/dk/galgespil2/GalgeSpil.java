@@ -53,9 +53,6 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
        if (b1.getText().equals("GÆT"))
        {
 
-
-       if (v == b1) {
-
            char c = et1.getText().toString().charAt(0);
 
            if (et1.getText().toString().length() == 1 && Character.isLetter(c)) {
@@ -109,7 +106,6 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
            } else {
                tv2.setText("Indtast venligst et bogstav");
            }
-        }
 
        }
        else
@@ -117,6 +113,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
            game.nulstil();
            iv1.setImageResource(R.mipmap.galge);
            tv1.setText(game.getSynligtOrd());
+           tv2.setText("Nyt spil!");
            b1.setText("GÆT");
            tv3.setText("Forkerte gæt tilbage: " + (6 - game.getAntalForkerteBogstaver()));
        }
