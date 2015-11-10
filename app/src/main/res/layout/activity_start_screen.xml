@@ -8,16 +8,28 @@
     tools:context="thostrup.dk.galgespil2.StartScreen"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/DR"
+        android:layout_below="@+id/textViewCount"
+        android:layout_centerHorizontal="true"
+        android:textColor="#010101"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:textSize="25dp" />
+
     <Button
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="nyt spil"
         android:id="@+id/buttonNew" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="indstillinger"
         android:id="@+id/buttonIndstillinger"
@@ -25,7 +37,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="hjælp"
         android:id="@+id/buttonHelp"
