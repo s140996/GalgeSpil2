@@ -19,7 +19,7 @@ public class Help extends AppCompatActivity {
                 "Spillet går ud på at gætte et skjult ord, hvor personen kun kender længden på ordet. Spilleren gætter på bogstaver, og får svar på om bogstavet er korrekt eller forkert (om bogstavet optræder i ordet). \n" +
                 "Korrekte bogstaver bliver placeret på de respektive placer i ordet. \n" +
                 "Hver gang der bliver gættet på et forkert bogstav, bliver der tegnet en ekstra ting på galgen/personen. \n" +
-                "Spilleren har tabt når personen har gættet forkert syg gange uden ordet er gættet. \n" +
-                "Spillet har vundet hvis hele ordet bliver gættet.");
+                "Spilleren har tabt når denne har brugt 7 forkerte gæt, uden ordet er gættet. \n" +
+                "Spillet er vundet hvis hele ordet bliver gættet.");
     }
 }
