@@ -77,6 +77,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
 
                        if (StartScreen.game.erSpilletTabt()) {
                            tv2.setText("Desværre! Du har tabt!");
+                           iv1.setImageResource(R.mipmap.tabt);
                            tv3.setText("Ordet var: " + StartScreen.game.getOrdet());
                            b1.setText("NYT SPIL");
                            et1.setVisibility(View.INVISIBLE);
