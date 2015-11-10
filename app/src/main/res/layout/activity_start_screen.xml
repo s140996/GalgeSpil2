@@ -25,15 +25,17 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="nyt spil"
-        android:id="@+id/buttonNew" />
+        android:id="@+id/buttonNew"
+        android:textSize="25dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="indstillinger"
+        android:text="Vis ordliste"
         android:id="@+id/buttonIndstillinger"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:textSize="25dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -41,5 +43,6 @@
         android:layout_weight="1"
         android:text="hjælp"
         android:id="@+id/buttonHelp"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        android:textSize="25dp" />
 </LinearLayout>

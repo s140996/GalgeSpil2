@@ -12,7 +12,8 @@ public class StartScreen extends AppCompatActivity {
 
     public static Galgelogik game;
     private TextView tv;
-    private Button b;
+    private Button b1;
+    private Button b2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,10 @@ public class StartScreen extends AppCompatActivity {
         tv = (TextView) findViewById(R.id.DR);
 
         // *** Sætter Knap ***
-        b = (Button) findViewById(R.id.buttonNew);
-        b.setVisibility(View.INVISIBLE);
+        b1 = (Button) findViewById(R.id.buttonNew);
+        b1.setVisibility(View.INVISIBLE);
+        b2 = (Button) findViewById(R.id.buttonIndstillinger);
+        b2.setVisibility(View.INVISIBLE);
 
         // *** Hent ord fra DR ***
         getDRwords();
@@ -61,7 +64,7 @@ public class StartScreen extends AppCompatActivity {
             protected Object doInBackground(Object... arg0) {
                 try {
                     StartScreen.game.hentOrdFraDr();
-                    return "Ordene blev korrekt hentet fra DR's server.";
+                    return "1";
                 } catch (Exception e) {
                     e.printStackTrace();
                     return "Ordene blev ikke hentet korrekt: " + e;
@@ -70,10 +73,11 @@ public class StartScreen extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Object resultat) {
-                if (resultat.equals("Ordene blev korrekt hentet fra DR's server."))
+                if (resultat.equals("1"))
                 {
-                    tv.setText("" + resultat);
-                    b.setVisibility(View.VISIBLE);
+                    tv.setText("Ordene blev korrekt hentet fra DR's server.");
+                    b1.setVisibility(View.VISIBLE);
+                    b2.setVisibility(View.VISIBLE);
                 }
                 else {
                     tv.setText("" + resultat);
