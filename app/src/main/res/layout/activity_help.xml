@@ -13,5 +13,6 @@
         android:id="@+id/textViewHelp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:textColor="#010101" />
 </RelativeLayout>

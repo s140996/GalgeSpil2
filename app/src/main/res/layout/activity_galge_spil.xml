@@ -59,4 +59,13 @@
         android:layout_centerHorizontal="true"
         android:gravity="center" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textViewDR"
+        android:layout_below="@+id/textViewCount"
+        android:layout_centerHorizontal="true"
+        android:textColor="#010101" />
+
 </RelativeLayout>

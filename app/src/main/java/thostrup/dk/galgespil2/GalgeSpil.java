@@ -1,5 +1,6 @@
 package thostrup.dk.galgespil2;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
     private Galgelogik game;
     private ImageView iv1;
     private Button b1;
-    private TextView tv1, tv2, tv3;
+    private TextView tv1, tv2, tv3, tv4;
     private EditText et1;
 
     @Override
@@ -27,29 +28,68 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
 
         // *** Sætter ImageView og Startbillede ***
         iv1 = (ImageView) findViewById(R.id.imageView);
-        iv1.setImageResource(R.mipmap.galge);
 
         // *** Sætter Knap ***
         b1 = (Button) findViewById(R.id.buttonGuess);
         b1.setOnClickListener(this);
         b1.setText("GÆT");
+        b1.setVisibility(View.INVISIBLE);
 
         // *** Sætter TextViews ***
         tv1 = (TextView) findViewById(R.id.textViewWord);
         tv2 = (TextView) findViewById(R.id.textViewInfo);
         tv3 = (TextView) findViewById(R.id.textViewCount);
-
-        tv1.setText(game.getSynligtOrd());
-        tv2.setText("Velkommen til Galge-Spillet");
-        tv3.setText("Forkerte gæt tilbage: 6");
+        tv4 = (TextView) findViewById(R.id.textViewDR);
 
         // *** Sætter EditText ***
         et1 = (EditText) findViewById(R.id.editTextGuess);
+        et1.setVisibility(View.INVISIBLE);
+
+        // *** Hent ord fra DR ***
+        getDRwords();
+    }
+
+    public void getDRwords()
+    {
+        tv4.setText("Henter ord fra DRs server....");
+        new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object... arg0) {
+                try {
+                    game.hentOrdFraDr();
+                    return "Ordene blev korrekt hentet fra DR's server";
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "Ordene blev ikke hentet korrekt: " + e;
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Object resultat) {
+                if (resultat.equals("Ordene blev korrekt hentet fra DR's server"))
+                {
+                    tv4.setText("" + resultat);
+                    tv1.setText(game.getSynligtOrd());
+                    tv2.setText("Velkommen til Galge-Spillet");
+                    tv3.setText("Forkerte gæt tilbage: 6");
+                    iv1.setImageResource(R.mipmap.galge);
+                    b1.setVisibility(View.VISIBLE);
+                    et1.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    tv4.setText("" + resultat);
+                }
+
+            }
+        }.execute();
     }
 
     @Override
     public void onClick(View v)
     {
+        tv4.setText("");
+
        if (b1.getText().equals("GÆT"))
        {
 
