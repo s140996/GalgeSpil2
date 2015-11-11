@@ -14,6 +14,7 @@ public class Help extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
+        // *** Sætter TextView ***
         tvHelp = (TextView) findViewById(R.id.textViewHelp);
         tvHelp.setText("Galgespil:\n" +
                 "Spillet går ud på at gætte et skjult ord, hvor personen kun kender længden på ordet. Spilleren gætter på bogstaver, og får svar på om bogstavet er korrekt eller forkert (om bogstavet optræder i ordet). \n" +
