@@ -42,6 +42,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
 
         // *** Sætter EditText ***
         et1 = (EditText) findViewById(R.id.editTextGuess);
+        et1.setText("");
     }
 
     @Override
@@ -49,61 +50,66 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
     {
        if (b1.getText().equals("GÆT"))
        {
+            if (!et1.getText().toString().matches("")) {
 
-           char c = et1.getText().toString().charAt(0);
+                char c = et1.getText().toString().charAt(0);
 
-           if (et1.getText().toString().length() == 1 && Character.isLetter(c) && et1.getText().toString().length() != 0) {
+                if (et1.getText().toString().length() == 1 && Character.isLetter(c)) {
 
-               if (!StartScreen.game.getBrugteBogstaver().contains(et1.getText().toString())) {
-                   StartScreen.game.gætBogstav(et1.getText().toString());
+                    if (!StartScreen.game.getBrugteBogstaver().contains(et1.getText().toString())) {
+                        StartScreen.game.gætBogstav(et1.getText().toString());
 
-                   if (StartScreen.game.erSidsteBogstavKorrekt() == false) {
-                       if (StartScreen.game.getAntalForkerteBogstaver() == 1) {
-                           iv1.setImageResource(R.mipmap.forkert1);
-                       } else if (StartScreen.game.getAntalForkerteBogstaver() == 2) {
-                           iv1.setImageResource(R.mipmap.forkert2);
-                       } else if (StartScreen.game.getAntalForkerteBogstaver() == 3) {
-                           iv1.setImageResource(R.mipmap.forkert3);
-                       } else if (StartScreen.game.getAntalForkerteBogstaver() == 4) {
-                           iv1.setImageResource(R.mipmap.forkert4);
-                       } else if (StartScreen.game.getAntalForkerteBogstaver() == 5) {
-                           iv1.setImageResource(R.mipmap.forkert5);
-                       } else if (StartScreen.game.getAntalForkerteBogstaver() == 6) {
-                           iv1.setImageResource(R.mipmap.forkert6);
-                       }
+                        if (StartScreen.game.erSidsteBogstavKorrekt() == false) {
+                            if (StartScreen.game.getAntalForkerteBogstaver() == 1) {
+                                iv1.setImageResource(R.mipmap.forkert1);
+                            } else if (StartScreen.game.getAntalForkerteBogstaver() == 2) {
+                                iv1.setImageResource(R.mipmap.forkert2);
+                            } else if (StartScreen.game.getAntalForkerteBogstaver() == 3) {
+                                iv1.setImageResource(R.mipmap.forkert3);
+                            } else if (StartScreen.game.getAntalForkerteBogstaver() == 4) {
+                                iv1.setImageResource(R.mipmap.forkert4);
+                            } else if (StartScreen.game.getAntalForkerteBogstaver() == 5) {
+                                iv1.setImageResource(R.mipmap.forkert5);
+                            } else if (StartScreen.game.getAntalForkerteBogstaver() == 6) {
+                                iv1.setImageResource(R.mipmap.forkert6);
+                            }
 
-                       tv2.setText("Desværre! Forkert bogstav!");
-                       tv3.setText("Forkerte gæt tilbage: " + (6 - StartScreen.game.getAntalForkerteBogstaver()));
+                            tv2.setText("Desværre! Forkert bogstav!");
+                            tv3.setText("Forkerte gæt tilbage: " + (6 - StartScreen.game.getAntalForkerteBogstaver()));
 
-                       if (StartScreen.game.erSpilletTabt()) {
-                           tv2.setText("Desværre! Du har tabt!");
-                           iv1.setImageResource(R.mipmap.tabt);
-                           tv3.setText("Ordet var: " + StartScreen.game.getOrdet());
-                           b1.setText("NYT SPIL");
-                           et1.setVisibility(View.INVISIBLE);
-                       }
+                            if (StartScreen.game.erSpilletTabt()) {
+                                tv2.setText("Desværre! Du har tabt!");
+                                iv1.setImageResource(R.mipmap.tabt);
+                                tv3.setText("Ordet var: " + StartScreen.game.getOrdet());
+                                b1.setText("NYT SPIL");
+                                et1.setVisibility(View.INVISIBLE);
+                            }
 
-                   } else if (StartScreen.game.erSidsteBogstavKorrekt() == true) {
-                       tv2.setText("Flot! Godt gættet!");
+                        } else if (StartScreen.game.erSidsteBogstavKorrekt() == true) {
+                            tv2.setText("Flot! Godt gættet!");
 
-                       if (StartScreen.game.erSpilletVundet()) {
-                           tv2.setText("Tillykke! Du har vundet!");
-                           iv1.setImageResource(R.mipmap.vundet);
-                           b1.setText("NYT SPIL");
-                           et1.setVisibility(View.INVISIBLE);
-                       }
-                   }
-                   tv1.setText(StartScreen.game.getSynligtOrd());
-               } else {
-                   tv2.setText("Bogstavet er brugt!");
-               }
+                            if (StartScreen.game.erSpilletVundet()) {
+                                tv2.setText("Tillykke! Du har vundet!");
+                                iv1.setImageResource(R.mipmap.vundet);
+                                b1.setText("NYT SPIL");
+                                et1.setVisibility(View.INVISIBLE);
+                            }
+                        }
+                        tv1.setText(StartScreen.game.getSynligtOrd());
+                    } else {
+                        tv2.setText("Bogstavet er brugt!");
+                    }
 
-           } else {
-               tv2.setText("Indtast venligst et bogstav");
-           }
+                } else {
+                    tv2.setText("Indtast venligst et bogstav");
+                }
 
-           et1.setText("");
-
+                et1.setText("");
+            }
+            else
+            {
+                tv2.setText("Indtast venligst et bogstav");
+            }
        }
        else
        {
