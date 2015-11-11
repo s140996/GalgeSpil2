@@ -52,7 +52,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
 
            char c = et1.getText().toString().charAt(0);
 
-           if (et1.getText().toString().length() == 1 && Character.isLetter(c)) {
+           if (et1.getText().toString().length() == 1 && Character.isLetter(c) && et1.getText().toString().length() != 0) {
 
                if (!StartScreen.game.getBrugteBogstaver().contains(et1.getText().toString())) {
                    StartScreen.game.gætBogstav(et1.getText().toString());
