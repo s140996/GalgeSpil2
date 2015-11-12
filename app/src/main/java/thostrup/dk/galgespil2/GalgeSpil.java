@@ -1,9 +1,11 @@
 package thostrup.dk.galgespil2;
 
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -105,6 +107,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
                 }
 
                 et1.setText("");
+                hideSoftKeyboard(this);
             }
             else
             {
@@ -123,5 +126,10 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
            et1.setVisibility(View.VISIBLE);
        }
 
+    }
+
+    public void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager = (InputMethodManager)  activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
     }
 }
