@@ -20,8 +20,13 @@ public class Galgelogik {
   private boolean spilletErTabt;
 
 
-  public ArrayList<String> getBrugteBogstaver() {
-    return brugteBogstaver;
+  public String getBrugteBogstaver() {
+    String str = brugteBogstaver.toString();
+
+    str = str.replace("[","");
+    str = str.replace("]","");
+
+    return str;
   }
 
   public ArrayList<String> getMuligeOrd() {

@@ -16,7 +16,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
     // *** Opretter variabler ***
     private ImageView iv1;
     private Button b1;
-    private TextView tv1, tv2, tv3;
+    private TextView tv1, tv2, tv3, tv4;
     private EditText et1;
 
     @Override
@@ -37,6 +37,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
         tv1 = (TextView) findViewById(R.id.textViewWord);
         tv2 = (TextView) findViewById(R.id.textViewInfo);
         tv3 = (TextView) findViewById(R.id.textViewCount);
+        tv4 = (TextView) findViewById(R.id.textViewUsed);
 
         tv1.setText(StartScreen.game.getSynligtOrd());
         tv2.setText("Velkommen til Galge-Spillet");
@@ -78,6 +79,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
 
                             tv2.setText("Desværre! Forkert bogstav!");
                             tv3.setText("Forkerte gæt tilbage: " + (6 - StartScreen.game.getAntalForkerteBogstaver()));
+                            hideSoftKeyboard(this);
                                 // *** Når spillet er tabt ***
                             if (StartScreen.game.erSpilletTabt()) {
                                 tv2.setText("Desværre! Du har tabt!");
@@ -89,6 +91,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
                                 // *** Korrekt gættet bogstav ***
                         } else if (StartScreen.game.erSidsteBogstavKorrekt() == true) {
                             tv2.setText("Flot! Godt gættet!");
+                            hideSoftKeyboard(this);
                                 // *** Spillet er vundet ***
                             if (StartScreen.game.erSpilletVundet()) {
                                 tv2.setText("Tillykke! Du har vundet!");
@@ -100,18 +103,21 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
                         tv1.setText(StartScreen.game.getSynligtOrd());
                     } else {
                         tv2.setText("Bogstavet er brugt!");
+                        hideSoftKeyboard(this);
                     }
 
                 } else {
                     tv2.setText("Indtast venligst et bogstav");
+                    hideSoftKeyboard(this);
                 }
 
                 et1.setText("");
-                hideSoftKeyboard(this);
+                tv4.setText("Brugte bogstaver: " + StartScreen.game.getBrugteBogstaver());
             }
             else
             {
                 tv2.setText("Indtast venligst et bogstav");
+                hideSoftKeyboard(this);
             }
        }
        else
@@ -121,6 +127,7 @@ public class GalgeSpil extends AppCompatActivity implements View.OnClickListener
            iv1.setImageResource(R.mipmap.galge);
            tv1.setText(StartScreen.game.getSynligtOrd());
            tv2.setText("Nyt spil!");
+           tv4.setText("");
            b1.setText("GÆT");
            tv3.setText("Forkerte gæt tilbage: " + (6 - StartScreen.game.getAntalForkerteBogstaver()));
            et1.setVisibility(View.VISIBLE);
